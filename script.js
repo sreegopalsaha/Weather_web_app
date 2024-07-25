@@ -21,7 +21,7 @@ const fetchData = async ()=>{
     if (cityName==""){
         cityName = "kolkata"
     }
-    const API= "541d1884ff0961d7a4c6c5737e377a37";
+    const API= "Enter Your Openweathermap API key ";
     URL = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${API}`;
     try{
     const res = await fetch(URL);
