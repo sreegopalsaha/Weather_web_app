@@ -1,5 +1,4 @@
 // Refferecne 
-
 const fetchBtn = document.querySelector(".fetchBtn");
 const showCity = document.querySelector(".showCity");
 const showDate = document.querySelector(".showDate");
@@ -41,14 +40,10 @@ const fetchData = async ()=>{
     showWheatherIcon.innerHTML = `<img src="http://openweathermap.org/img/wn/${data.weather[0].icon}.png" />`;
     console.log(data.weather[0].icon);
    
-
-
     }
     catch{
         
         console.log("Invalid City. Please check for any typo");
-        
-
     }
 
 
