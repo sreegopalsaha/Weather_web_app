@@ -22,6 +22,7 @@ const fetchData = async ()=>{
         cityName = "kolkata"
     }
     const API= "Enter Your Openweathermap API key ";
+
     URL = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${API}`;
     try{
     const res = await fetch(URL);
@@ -30,11 +31,11 @@ const fetchData = async ()=>{
     showCity.textContent = data.name;
     showDate.textContent = new Date(data.dt*1000);
     showStatus.textContent = data.weather[0].description;
-    showDegree.innerHTML =  `${data.main.temp}&#176;`;
-    showMin.innerHTML =  `Min: ${data.main.temp_min}&#176;`;
-    showMax.innerHTML =  `Max: ${data.main.temp_max}&#176;`;
+    showDegree.innerHTML =  `${(data.main.temp- 273.15).toFixed(0)}&#176;C`;
+    showMin.innerHTML =  `Min: ${(data.main.temp_min- 273.15).toFixed(0)}&#176;C`;
+    showMax.innerHTML =  `Max: ${(data.main.temp_max- 273.15).toFixed(0)}&#176;C`;
     showHumidity.innerHTML =  `${data.main.humidity}%`;
-    showFeel.innerHTML =  `${data.main.feels_like}&#176;`;
+    showFeel.innerHTML =  `${(data.main.feels_like- 273.15).toFixed(0)}&#176;C`;
     showWind.innerHTML =  `${data.wind.speed} m/s`;
     showPressure.innerHTML =  `${data.main.pressure} hpa`;
     showWheatherIcon.innerHTML = `<img src="http://openweathermap.org/img/wn/${data.weather[0].icon}.png" />`;
